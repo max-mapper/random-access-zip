@@ -103,6 +103,7 @@ RandomAccessZipEntry.prototype.write = function (offset, buf, cb) {
 }
 
 RandomAccessZipEntry.prototype.close = function (cb) {
+  var self = this
   this.zip.close(function (err) {
     if (err) return cb(err)
     self.emit('close')      
